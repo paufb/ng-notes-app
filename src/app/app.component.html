@@ -2,9 +2,14 @@
   <div class="content">
     <header>
       <h1>{{title}}</h1>
-      <button mat-button [disabled]="noteItems.length === 0" (click)="deleteAllNoteItems()">
-        Delete all
-      </button>
+      <div class="actions">
+        <button mat-button (click)="generateSamples()">
+          Generate samples
+        </button>
+        <button mat-button [disabled]="noteItems.length === 0" (click)="deleteAllNoteItems()">
+          Delete all
+        </button>
+      </div>
     </header>
     <app-note-form (createNoteItem)="createNoteItem($event)" />
     <app-note-grid [noteItems]="noteItems" (reorderNoteItems)="saveNoteItems()" />
