@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { NoteFormComponent } from './note-form/note-form.component';
 import { NoteGridComponent } from './note-grid/note-grid.component';
 import { NoteItem } from '../types';
 
 @Component({
   selector: 'app-root',
-  imports: [NoteGridComponent, NoteFormComponent],
+  imports: [MatButtonModule, NoteGridComponent, NoteFormComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -31,5 +32,10 @@ export class AppComponent {
     const saved = localStorage.getItem(this.localStorageItemKey);
     if (saved)
       this.noteItems = JSON.parse(saved);
+  }
+
+  deleteAllNoteItems() {
+    this.noteItems = [];
+    localStorage.removeItem(this.localStorageItemKey);
   }
 }

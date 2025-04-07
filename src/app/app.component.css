@@ -2,6 +2,11 @@ main {
   margin: 1rem;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .content {
   display: flex;
   flex-direction: column;
