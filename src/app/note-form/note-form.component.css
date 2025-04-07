@@ -5,6 +5,8 @@ form {
   margin: 0 auto 1rem auto;
 }
 
-button {
+.footer {
   align-self: flex-end;
+  display: flex;
+  gap: 1rem;
 }

@@ -1,4 +1,4 @@
-<form [formGroup]="noteForm" #formDirective="ngForm" (ngSubmit)="onSubmit(formDirective)">
+<form [formGroup]="noteForm" #formDirective="ngForm" (ngSubmit)="onSubmit()">
   <mat-form-field [subscriptSizing]="isExpanded ? 'fixed' : 'dynamic'">
     <mat-label>Take a note...</mat-label>
     <input matInput formControlName="title" (focus)="isExpanded = true">
@@ -8,6 +8,9 @@
       <mat-label>Description</mat-label>
       <textarea matInput formControlName="description" cdkTextareaAutosize></textarea>
     </mat-form-field>
-    <button mat-raised-button>Add note</button>
+    <div class="footer">
+      <button type="button" mat-button (click)="resetForm()">Cancel</button>
+      <button type="submit" mat-raised-button>Add note</button>
+    </div>
   }
 </form>

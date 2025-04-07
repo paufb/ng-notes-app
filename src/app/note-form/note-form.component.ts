@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
@@ -14,18 +14,24 @@ import { NoteItem } from '../../types';
 })
 export class NoteFormComponent {
   @Output() createNoteItem = new EventEmitter<NoteItem>();
+  @ViewChild('formDirective') private formDirective!: FormGroupDirective;
   isExpanded = false;
   noteForm = new FormGroup({
     title: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required)
   });
 
-  onSubmit(formDirective: FormGroupDirective) {
+  resetForm() {
+    this.isExpanded = false;
+    this.noteForm.reset();
+    this.formDirective.resetForm();
+  }
+
+  onSubmit() {
     if (this.noteForm.valid) {
       const noteItem = { id: Date.now(), ...this.noteForm.value } as NoteItem;
       this.createNoteItem.emit(noteItem);
-      this.isExpanded = false;
-      formDirective.resetForm();
+      this.resetForm();
     }
   }
 }
