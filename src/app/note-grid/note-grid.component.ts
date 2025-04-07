@@ -1,12 +1,13 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CdkDrag, CdkDragHandle, CdkDragDrop, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
+import { MatButtonModule } from '@angular/material/button';
 import { NoteItem } from '../../types';
 
 @Component({
   selector: 'app-note-grid',
   templateUrl: './note-grid.component.html',
   styleUrl: './note-grid.component.css',
-  imports: [CdkDrag, CdkDragHandle, CdkDropList]
+  imports: [MatButtonModule, CdkDrag, CdkDragHandle, CdkDropList]
 })
 export class NoteGridComponent {
   @Input() noteItems: NoteItem[] = [];

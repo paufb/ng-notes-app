@@ -4,6 +4,13 @@
   cdkDropListOrientation="mixed"
   (cdkDropListDropped)="drop($event)"
 >
+  @if (noteItems.length === 0) {
+    <div class="empty-message">
+      Take a note or press
+      <button mat-button disabled>Generate samples</button>
+      to begin...
+    </div>
+  }
   @for (noteItem of noteItems; track noteItem.id) {
     <div class="note-item" cdkDrag>
       <strong>{{noteItem.title}}</strong>

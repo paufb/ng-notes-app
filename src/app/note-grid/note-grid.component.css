@@ -4,6 +4,14 @@
   gap: 1rem;
 }
 
+.empty-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5rem;
+  color: gray;
+}
+
 .note-item {
   display: flex;
   flex-direction: column;
