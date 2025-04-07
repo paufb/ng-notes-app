@@ -12,6 +12,6 @@
       </div>
     </header>
     <app-note-form (createNoteItem)="createNoteItem($event)" />
-    <app-note-grid [noteItems]="noteItems" (reorderNoteItems)="saveNoteItems()" />
+    <app-note-grid [noteItems]="noteItems" (deleteNoteItem)="deleteNoteItem($event)" (reorderNoteItems)="saveNoteItems()" />
   </div>
 </main>

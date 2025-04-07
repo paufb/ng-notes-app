@@ -42,6 +42,17 @@
     line-height: 24px;
     width: calc(100% - 24px);
   }
+
+  & p {
+    margin: 0;
+    width: calc(100% - 32px);
+  }
+}
+
+.menu-button {
+  position: absolute;
+  right: 2.5px;
+  bottom: 2.5px;
 }
 
 .drag-handle {

@@ -24,6 +24,11 @@ export class AppComponent {
     this.saveNoteItems();
   }
 
+  deleteNoteItem(noteItemId: number) {
+    this.noteItems = this.noteItems.filter((noteItem) => noteItem.id !== noteItemId);
+    this.saveNoteItems();
+  }
+
   saveNoteItems() {
     localStorage.setItem(this.localStorageItemKey, JSON.stringify(this.noteItems));
   }
@@ -67,7 +72,7 @@ export class AppComponent {
     const getRandom = <T>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)];
     for (let i = 0; i < 4; i++) {
       const noteItem: NoteItem = {
-        id: Date.now(),
+        id: Date.now() + i,
         title: getRandom(sampleTitles),
         description: getRandom(sampleDescriptions)
       };
